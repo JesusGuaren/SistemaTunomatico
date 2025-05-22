@@ -279,7 +279,7 @@ El sistema se desplegó considerando aspectos clave de **desempeño, escalabilid
 - El uso de patrones reduce el acoplamiento, lo que mejora la **capacidad de mantenimiento** del sistema a largo plazo.
 
 **👉 Reemplazar esta línea con el diagrama de implementación:**  
-`![Diagrama de Implementación](ruta/implementation-diagram.png)`
+![Diagrama de Implementación](imagenes/implementation diagram.png)
 
 ---
 
