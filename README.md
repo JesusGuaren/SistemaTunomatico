@@ -52,20 +52,6 @@ El sistema Tunomático automatiza la **gestión de turnos médicos** con:
 | **Observer**         | `SistemaAlertas`     | Notifica en tiempo real cambios en turnos (ej: cancelaciones).                     |  
 | **Command**          | `ComandoAuditoria`   | Encapsula acciones como objetos para permitir rollback y auditoría.                |  
 
-**Código Ejemplo (Singleton)**:  
-```java
-public class GestorTurnos {
-    private static volatile GestorTurnos instance;
-    private final ConcurrentMap<String, Turno> turnos = new ConcurrentHashMap<>();
-
-    public static synchronized GestorTurnos getInstance() {
-        if (instance == null) {
-            instance = new GestorTurnos();
-        }
-        return instance;
-    }
-}
-
 
 **🚀 Diagrama de Implementación UML — Despliegue Físico**
 Implementación
@@ -79,9 +65,6 @@ Flujo Crítico:
 
 Diagram
 Code
-
-
-
 
 
 
@@ -105,7 +88,7 @@ Notificaciones (Kafka + Event-Driven).
 
 Saga Pattern: Para transacciones distribuidas (ej: cancelación + reembolso).
 
-📌 Estructura del Repositorio
+##📌 Estructura del Repositorio##
 Tunomatico/
 ├── README.md
 └── imagenes/
@@ -120,3 +103,19 @@ Diagramas integrados: Cada imagen tiene descripción detallada.
 Código Java relevante: Muestra implementaciones críticas.
 
 Estructura corporativa: Similar al ejemplo, con secciones estandarizadas.
+
+
+
+**Código Ejemplo (Singleton)**:  
+```java
+public class GestorTurnos {
+    private static volatile GestorTurnos instance;
+    private final ConcurrentMap<String, Turno> turnos = new ConcurrentHashMap<>();
+
+    public static synchronized GestorTurnos getInstance() {
+        if (instance == null) {
+            instance = new GestorTurnos();
+        }
+        return instance;
+    }
+};
