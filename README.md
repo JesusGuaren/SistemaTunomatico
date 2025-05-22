@@ -53,7 +53,7 @@ El sistema Tunomático automatiza la **gestión de turnos médicos** con:
 | **Command**          | `ComandoAuditoria`   | Encapsula acciones como objetos para permitir rollback y auditoría.                |  
 
 
-**🚀 Diagrama de Implementación UML — Despliegue Físico**
+##🚀 Diagrama de Implementación UML — Despliegue Físico**
 Implementación
 
 Arquitectura Física
@@ -68,7 +68,7 @@ Code
 
 
 
-💡 Reflexiones Finales del Modelado
+##💡 Reflexiones Finales del Modelado
 Lecciones Clave
 Singleton en entornos distribuidos: Requirió implementar sincronización con Redis para evitar inconsistencias.
 
