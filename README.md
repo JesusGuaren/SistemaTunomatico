@@ -228,8 +228,8 @@ Cada patrón responde a principios SOLID como:
 - **O**: Abierto/Cerrado (nuevos tipos de notificadores no requieren modificar código existente)
 - **D**: Inversión de Dependencias (uso de interfaces para desacoplar cliente e implementación)
 
-**👉 Reemplazar esta línea con el diagrama de clases generado:**  
-`![Diagrama de Clases](ruta/diagrama-clases.png)`
+
+![Diagrama de Clases](imagenes/diagramita_class.png)
 
 ---
 
@@ -248,8 +248,7 @@ El sistema define relaciones entre **actores** (Pacientes, Médicos, Sistema ERP
 
 Estas relaciones permiten una visión clara, **modular y escalable**, facilitando futuras ampliaciones sin comprometer la estructura actual.
 
-
-**👉 Reemplazar esta línea con el diagrama de casos de uso:**  
+  
 ![Diagrama de caso de uso](imagenes/UC_diagram.png)
 
 ---
@@ -279,7 +278,7 @@ El sistema se desplegó considerando aspectos clave de **desempeño, escalabilid
 - El uso de patrones reduce el acoplamiento, lo que mejora la **capacidad de mantenimiento** del sistema a largo plazo.
 
 **👉 Reemplazar esta línea con el diagrama de implementación:**  
-![Diagrama de Implementación](imagenes/implementation diagram.png)
+![Diagrama de Implementación](imagenes/implementation_diagram.png)
 
 ---
 
