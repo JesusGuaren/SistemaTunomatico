@@ -65,7 +65,7 @@ public class GestorTurnos {
         return instance;
     }
 }
-Code
+
 
 **🚀 Diagrama de Implementación UML — Despliegue Físico**
 Implementación
@@ -78,7 +78,7 @@ ERP Hospitalario	SOAP/REST	Adapter (NotificadorAdapter)	Circuit Breaker para res
 Flujo Crítico:
 
 Diagram
-
+Code
 
 
 
