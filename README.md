@@ -1,6 +1,6 @@
 # 🏥 Sistema Tunomático - Gestión de Turnos Médicos  
 **Repositorio académico** que modela un sistema de turnos digitales con:  
-- **Patrones de diseño en Java** (Singleton, Adapter, Factory Method).  
+- **Patrones de diseño en Java** (Singleton, Adapter, Bridge, Prototype).  
 - **Diagramas UML** generados con PlantUML.  
 - **Transición completa** desde casos de uso hasta implementación física.  
 
