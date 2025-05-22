@@ -65,7 +65,8 @@ public class GestorTurnos {
         return instance;
     }
 }
-🚀 Diagrama de Implementación UML — Despliegue Físico
+
+**🚀 Diagrama de Implementación UML — Despliegue Físico**
 Implementación
 
 Arquitectura Física
