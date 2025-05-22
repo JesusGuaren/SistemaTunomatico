@@ -1,103 +1,105 @@
-🏥 Caso Real: Sistema Tunomático de Gestión de Turnos Médicos
-Este repositorio presenta un sistema corporativo para la gestión digitalizada de turnos en centros médicos. El sistema Tunomático incorpora algoritmos de priorización, integración con ERP hospitalarios y cumplimiento de normativas internacionales como HIPAA (EE.UU.) y MINSAL (Chile). Este diseño está pensado para instituciones que requieren alta disponibilidad, trazabilidad completa y una arquitectura profesional con patrones de diseño sólidos.
+# 🏥 Caso Real: Sistema Tunomático de Gestión de Turnos Médicos
 
-📋 Descripción General
-El sistema Tunomático automatiza y optimiza la asignación de turnos médicos con características clave como:
+Este repositorio presenta un sistema corporativo para la gestión digitalizada de turnos en centros médicos. El sistema **Tunomático** incorpora algoritmos de priorización, integración con ERP hospitalarios y cumplimiento de normativas internacionales como **HIPAA** (EE.UU.) y **MINSAL** (Chile).
 
-✅ Priorización inteligente de turnos: atención urgente vs. rutinaria.
+---
 
-✅ Integración con ERP hospitalario para envío de notificaciones multicanal (SMS, Email, WhatsApp).
+## 📋 Descripción General
 
-✅ Auditoría de accesos y movimientos conforme a normativas HIPAA.
+El sistema **Tunomático** automatiza y optimiza la asignación de turnos médicos con características clave como:
 
-✅ Dashboard en tiempo real para control administrativo.
+- ✅ Priorización inteligente de turnos: atención urgente vs. rutinaria.
+- ✅ Integración con ERP hospitalario para envío de notificaciones multicanal (SMS, Email, WhatsApp).
+- ✅ Auditoría de accesos conforme a HIPAA.
+- ✅ Dashboard en tiempo real.
+- ✅ Cumplimiento de normativas de protección de datos en EE.UU. y Chile.
 
-✅ Cumplimiento de normativas de protección de datos en EE.UU. y Chile.
+---
 
-Este enfoque garantiza eficiencia operativa, minimiza errores humanos y asegura la trazabilidad legal de cada acción realizada dentro del sistema.
+## 🧩 Diagrama de Casos de Uso
 
-🧩 Diagrama de Casos de Uso — Interacción y Flujo Clínico
+![Casos de Uso](imagenes/casos_uso.png)
 
-🧑‍🤝‍🧑 Actores y Roles
-Actor	Rol en el Sistema
-Paciente	Solicita, cancela o paga turnos médicos.
-Recepcionista	Administra agendas, sobrecupos y confirmaciones.
-ERP Hospitalario	Proporciona datos clínicos y servicios de notificación.
+### 🎭 Actores y Roles
 
-🔗 Relaciones Clave
-<<include>>: Todos los flujos incluyen validación de identidad conforme a HIPAA.
+| Actor             | Rol en el Sistema                                       |
+|------------------|----------------------------------------------------------|
+| **Paciente**      | Solicita, cancela o paga turnos médicos.               |
+| **Recepcionista** | Administra agendas, sobrecupos y confirmaciones.       |
+| **ERP Hospitalario** | Proporciona datos clínicos y servicios de notificación. |
 
-<<extend>>: El pago en línea se extiende solo en clínicas privadas.
+### 🔗 Relaciones Clave
 
-Este diagrama modela escenarios reales de atención, con foco en la interoperabilidad y la trazabilidad de acciones sensibles en entornos clínicos.
+- `<<include>>`: Todos los flujos incluyen validación de identidad conforme a HIPAA.
+- `<<extend>>`: El pago en línea se extiende solo en clínicas privadas.
 
-🗂️ Diagrama de Clases — Tunomático con Patrones Aplicados
+---
 
-Este diseño aplica múltiples patrones de diseño reconocidos para asegurar escalabilidad, desacoplamiento y resiliencia técnica.
+## 📦 Diagrama de Clases
 
-🛠️ Patrones de Creación
-Patrón	Clase	Justificación Técnica
-Singleton	GestorTurnos	Centraliza la gestión de turnos, evitando condiciones de carrera mediante synchronized.
-Prototype	Turno	Permite clonar estructuras de turnos recurrentes (ej. controles mensuales).
+![Diagrama de Clases](imagenes/diagrama_clases.png)
 
-🏛️ Patrones Estructurales
-Patrón	Clase	Beneficio
-Adapter	NotificadorAdapter	Unifica APIs heterogéneas (Twilio, SendGrid, etc.) bajo una interfaz común.
-Facade	SistemaFacade	Aísla subsistemas complejos (ERP, BD, Notificaciones) para facilitar mantenimiento.
+Este diseño aplica múltiples patrones de diseño para asegurar escalabilidad y desacoplamiento.
 
-⚙️ Patrones de Comportamiento
-Patrón	Clase	Aplicación Real
-Observer	SistemaAlertas	Notifica en tiempo real cambios en turnos (cancelaciones, reprogramaciones).
-Command	ComandoAuditoria	Encapsula acciones sensibles, permitiendo rollback y auditoría legal.
+### 🛠️ Patrones de Creación
 
-Este diseño no solo resuelve los desafíos funcionales, sino que establece una arquitectura preparada para ambientes clínicos críticos, donde el desacoplamiento y la auditabilidad son obligatorios.
+| Patrón        | Clase         | Justificación                                                                 |
+|---------------|---------------|--------------------------------------------------------------------------------|
+| **Singleton** | `GestorTurnos` | Centraliza la gestión de turnos. Usa `synchronized` para evitar condiciones de carrera. |
+| **Prototype** | `Turno`       | Clonación de turnos recurrentes como controles mensuales.                      |
 
-🚀 Diagrama de Implementación UML — Despliegue Físico y Decisiones Técnicas
+### 🏛️ Patrones Estructurales
 
-Arquitectura Distribuida con Patrones de Resiliencia
-Nodo	Tecnología	Patrón Aplicado	Justificación Técnica
-Cliente (Android)	Java + Retrofit	Bridge (UI multiplataforma)	Patrón MVP para separar vista de lógica y facilitar pruebas.
-Servidor (AWS)	Spring Boot + Redis	Singleton + Redis	Redis actúa como sincronizador entre nodos para evitar estados inconsistentes.
-ERP Hospitalario	SOAP/REST	Adapter (NotificadorAdapter)	Circuit Breaker implementado para tolerancia a fallos en servicios externos.
+| Patrón       | Clase              | Beneficio                                                                       |
+|--------------|--------------------|----------------------------------------------------------------------------------|
+| **Adapter**  | `NotificadorAdapter` | Integra múltiples APIs externas (SMS, Email, WhatsApp) bajo una sola interfaz.  |
+| **Facade**   | `SistemaFacade`     | Encapsula subsistemas complejos y simplifica la interacción con ERP y BD.       |
 
-Esta implementación permite escalar horizontalmente, proteger el sistema ante fallos y separar responsabilidades críticas de forma robusta.
+### ⚙️ Patrones de Comportamiento
 
-💡 Reflexiones Finales del Modelado
-🔍 Lecciones Clave
-Singleton distribuido: En entornos clusterizados, fue necesario usar Redis para mantener consistencia de estado en GestorTurnos.
+| Patrón       | Clase              | Aplicación Real                                                                  |
+|--------------|--------------------|----------------------------------------------------------------------------------|
+| **Observer** | `SistemaAlertas`   | Notificaciones en tiempo real ante cancelaciones o reprogramaciones.             |
+| **Command**  | `ComandoAuditoria` | Encapsula acciones sensibles para auditoría y rollback legal.                    |
 
-Adapter resiliente: Se agregaron políticas de retry con backoff exponencial y timeout configurable para soportar APIs inestables.
+---
 
-🧾 Deuda Técnica Gestionada
-Problema: La validación de prioridad se realizaba en el cliente.
+## 🚀 Diagrama de Implementación
 
-Solución: Migración al backend con GraphQL, lo que permite lógica centralizada y consultas flexibles.
+![Diagrama de Implementación](imagenes/diagrama_implementacion.png)
 
-🛤️ Roadmap Tecnológico
-Próximas Mejoras
-Microservicios: Separar TurnoService en:
+### Arquitectura Distribuida
 
-TurnosCore (Singleton + Redis).
+| Nodo                | Tecnología             | Patrón Aplicado         | Justificación Técnica                                                                 |
+|---------------------|------------------------|--------------------------|----------------------------------------------------------------------------------------|
+| **Cliente (Android)** | Java + Retrofit        | `Bridge`                 | Separa vista de lógica con MVP.                                                       |
+| **Servidor (AWS)**   | Spring Boot + Redis     | `Singleton` distribuido  | Redis mantiene sincronización entre múltiples instancias del backend.                 |
+| **ERP Hospitalario** | REST/SOAP               | `Adapter + CircuitBreaker` | Adaptador resiliente con reintentos y tolerancia a fallos en servicios externos.       |
 
-NotificacionesService (Kafka + Event-Driven).
+---
 
-Saga Pattern: Implementar coordinación transaccional para procesos distribuidos (cancelaciones, reembolsos).
+## 💡 Reflexiones Finales del Modelado
 
-📁 Estructura del Repositorio
-markdown
-Copiar
-Editar
-Tunomatico/
-├── README.md
-└── imagenes/
-    ├── casos_uso.png
-    ├── diagrama_clases.png
-    └── diagrama_implementacion.png
-✅ ¿Cómo este README cumple con el estándar corporativo?
-📌 Redacción técnica profesional: Cada sección justifica los patrones y decisiones.
+### ✅ Lecciones Clave
 
-📊 Diagramas integrados: Cada imagen está acompañada de su análisis.
+- Uso de **Singleton distribuido** sincronizado con Redis para coherencia de turnos en instancias escaladas.
+- Implementación de **Adapter resiliente** con reintentos y tolerancia a fallos.
 
-🔍 Código relevante: Se muestran estructuras críticas como Singleton distribuido.
+### ⚠️ Deuda Técnica Detectada
 
-🏗️ Diseño corporativo real: Cada patrón está ubicado donde resuelve un problema real del dominio clínico.
+- **Problema**: La validación de prioridad se realizaba en el cliente.
+- **Solución**: Migración al backend mediante GraphQL para centralizar la lógica.
+
+---
+
+## 🛤️ Roadmap Tecnológico
+
+- Separación en **microservicios**:
+  - `TurnosCore` (con Redis).
+  - `NotificacionesService` (event-driven con Kafka).
+- Implementación de **Saga Pattern** para transacciones distribuidas.
+
+---
+
+## 📁 Estructura del Repositorio
+
