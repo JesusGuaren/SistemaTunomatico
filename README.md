@@ -229,7 +229,7 @@ Cada patrón responde a principios SOLID como:
 - **D**: Inversión de Dependencias (uso de interfaces para desacoplar cliente e implementación)
 
 
-![Diagrama de Clases](imagenes/diagramita_class.png)
+![Diagrama de Clases](imagenes/diagramita_class2.png)
 
 ---
 
