@@ -277,7 +277,7 @@ El sistema se desplegó considerando aspectos clave de **desempeño, escalabilid
 - Las clases están diseñadas para facilitar pruebas unitarias (clases como `GestorTurnos` pueden ser instanciadas controladamente).
 - El uso de patrones reduce el acoplamiento, lo que mejora la **capacidad de mantenimiento** del sistema a largo plazo.
 
-**👉 Reemplazar esta línea con el diagrama de implementación:**  
+ 
 ![Diagrama de Implementación](imagenes/implementation_diagram.png)
 
 ---
