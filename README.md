@@ -250,7 +250,7 @@ Estas relaciones permiten una visión clara, **modular y escalable**, facilitand
 
 
 **👉 Reemplazar esta línea con el diagrama de casos de uso:**  
-![Diagrama de caso de uso](imagenes/UCdiagram.png)
+![Diagrama de caso de uso](imagenes/UC_diagram.png)
 
 ---
 
